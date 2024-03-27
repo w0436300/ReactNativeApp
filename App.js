@@ -1,12 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-export default function App() {
+import LaureatesStack from './stacks/LaureatesStack';
+import PrizeStack from './stacks/PrizeStack';
+import List from './screens/List';
+import CategoriesList from './screens/Categories';
+
+const Tab = createBottomTabNavigator();
+
+
+
+export default function App () {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Laureates" component={LaureatesStack} />
+        <Tab.Screen name="Prize" component={PrizeStack} />
+      </Tab.Navigator>
+    </NavigationContainer>
+      
   );
 }
 
