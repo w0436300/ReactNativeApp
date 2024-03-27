@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import LaureatesStack from './stacks/LaureatesStack';
 import PrizeStack from './stacks/PrizeStack';
-import List from './screens/List';
+import List from './screens/LaureatesList';
 import CategoriesList from './screens/Categories';
 
 const Tab = createBottomTabNavigator();
@@ -18,7 +18,7 @@ export default function App () {
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen name="Laureates" component={LaureatesStack} />
-        <Tab.Screen name="Prize" component={PrizeStack} />
+        <Tab.Screen name="Prizes" component={PrizeStack} />
       </Tab.Navigator>
     </NavigationContainer>
       

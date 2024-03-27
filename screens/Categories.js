@@ -21,7 +21,7 @@ function CategoriesList({ navigation }) {
                 renderItem={({ item }) => (
                     <ListItem
                         onPress={() => 
-                            navigation.navigate('YearsList', { category:item.code })}
+                            navigation.navigate('Years', { category:item.code })}
                     >
                     <ListItem.Content>
                         <ListItem.Title>{item.name}</ListItem.Title>

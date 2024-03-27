@@ -1,7 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Cards from '../screens/Card';
-import List from '../screens/List';
+
+import Cards from '../screens/LaureatesCard';
+import List from '../screens/LaureatesList';
 
 const Stack = createNativeStackNavigator();
 

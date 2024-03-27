@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { View, ScrollView, StyleSheet, Image } from 'react-native';
+import { View, ScrollView, StyleSheet, Image,ActivityIndicator } from 'react-native';
 import { Text, Card, Button, Icon, Avatar } from '@rneui/themed';
 import { ViewBase } from 'react-native';
 
@@ -33,33 +33,41 @@ const PrizeDetails = ({ route}) => {
 
   }, [year, category]);
 
+  if (isLoading) {
+    return (
+        <View style={styles.container}>
+            <ActivityIndicator size="large" />
+        </View>
+    );
+  }
+
   if (!prizeDetails?.laureates?.length) {
     return (
         <Card style={styles.container}>
             <Card.Title>No awards this year</Card.Title>
         </Card>
     );
-}
+  }
   
     return (
       <ScrollView>
         <View style={styles.container}>
                 <Card>
-                    <Card.Title> {prizeDetails.category.en}</Card.Title>
+                    <Card.Title h3> {prizeDetails.category.en}</Card.Title>
                     <Card.Title> {year}</Card.Title>
                     <Card.Divider />
                     <Text>
-                        Awarded Date {prizeDetails.dateAwarded}
+                        Awarded Date: {prizeDetails.dateAwarded}
                     </Text>
                     <Text>
-                       Prize Amount {prizeDetails.prizeAmount}
+                       Prize Amount: {prizeDetails.prizeAmount}
                     </Text>
-                    <Card.Divider />
-                    <Card.Title> Laureate(s)</Card.Title>
+                    <Card.Divider style={{ marginTop: 20 }}/>
+                    <Card.Title h4> Laureate(s)</Card.Title>
                     <Card.Divider />
                         {prizeDetails.laureates.map((laureate) => (
                         <View key={laureate.id} style={styles.laureateContainer}>
-                            <Text style={styles.laureateName}>{laureate.fullName.en}</Text>
+                            <Text style={styles.laureateName}>{laureate.fullName?.en || laureate.orgName?.en}</Text>
                             <Text>{laureate.motivation.en}</Text>
                         </View>
                          ))}                 
