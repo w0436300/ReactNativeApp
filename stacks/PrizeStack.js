@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 export default function PrizeStack() {
     return (
         <Stack.Navigator>
-          <Stack.Screen name="Prize" component={CategoriesList} />
+          <Stack.Screen name="Categories" component={CategoriesList} />
           <Stack.Screen name="YearsList" component={YearsList} />
           <Stack.Screen name="PrizeDetails" component={PrizeDetails} />
 

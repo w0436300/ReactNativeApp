@@ -33,10 +33,10 @@ const PrizeDetails = ({ route}) => {
 
   }, [year, category]);
 
-  if (!prizeDetails || !prizeDetails.laureates || prizeDetails.laureates.length === 0) {
+  if (!prizeDetails?.laureates?.length) {
     return (
         <Card style={styles.container}>
-            <Card.Title>No Nobel Laureates available for this prize.</Card.Title>
+            <Card.Title>No awards this year</Card.Title>
         </Card>
     );
 }
