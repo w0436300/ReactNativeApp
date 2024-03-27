@@ -5,7 +5,7 @@ import { Text, Card, Button, Icon, Avatar } from '@rneui/themed';
 
 const Cards = ({ navigation, route}) => {
   const currentUrl = `https://api.nobelprize.org/2.1/laureate/${route.params.id}`;
-  const  [laureate, setLaureates] = useState({})
+  const  [laureate, setLaureate] = useState({})
   const fetchData = async() => {
 
     console.log("Fetching data...");
@@ -14,7 +14,7 @@ const Cards = ({ navigation, route}) => {
     const response = await fetch(currentUrl);
     const jsonData = await response.json();
 
-    setLaureates(jsonData[0]);
+    setLaureate(jsonData[0]);
 
   };
 
