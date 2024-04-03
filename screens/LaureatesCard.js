@@ -9,7 +9,6 @@ const Cards = ({ navigation, route}) => {
   const fetchData = async() => {
 
     console.log("Fetching data...");
-
     // fetch the laureate from the api
     const response = await fetch(currentUrl);
     const jsonData = await response.json();
@@ -34,7 +33,7 @@ const Cards = ({ navigation, route}) => {
                       {laureate.founded ? `Founded Date: ${laureate.founded.date}` : ''}
                     </Text>
                     <Text>
-                      Country: {laureate.birth?.place.country?.en || laureate.founded?.place.country?.en }                
+                      Country: {laureate.birth?.place?.country?.en || laureate.founded?.place?.country?.en || 'none'}                
                     </Text>     
                   </View>
                   <Card.Divider style={{ marginTop: 20 }}/>
